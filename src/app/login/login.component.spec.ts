@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
+import {DialogModule} from 'primeng/primeng';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

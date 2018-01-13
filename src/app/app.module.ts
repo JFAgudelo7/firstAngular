@@ -3,13 +3,23 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import {InputTextModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
+import {DialogModule} from 'primeng/primeng';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
+
+import { environment } from '../environments/environment';
+
+import { UserService } from "./user.service";
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -30,10 +40,16 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule,
+    DialogModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

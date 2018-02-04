@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   msg: string;
   display:boolean = false;
 
-  constructor(public authService: UserService) {}
+  constructor(public authService: UserService, private router: Router) {}
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
     then(value => {
       this.msg = value;
       this.display = true;
+      this.router.navigate(['home']);
     })
     .catch(err => {
       console.log('Algo fue mal:',err.message);

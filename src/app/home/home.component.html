@@ -1,3 +1,6 @@
-<p>
-  home works!
-</p>
+<div>
+        <h1 class="center">Ng-Classroom</h1>
+        <span class="pointer-cursor"><button pButton type="button" label="Actualizar" (click)="refreshFeed()"></button> | <button pButton type="button" label="Salir" (click)="logout()"></button></span>
+</div>
+<br>
+<app-feed-card *ngFor="let feed of feeds" [feed]="feed" ></app-feed-card>

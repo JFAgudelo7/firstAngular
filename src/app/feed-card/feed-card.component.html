@@ -1,0 +1,7 @@
+<p-panel >
+    <p-header><a href='{{ feed.link }}'>{{feed.title}}</a> - {{feed.pubDate | date:'dd-MM-yyyy'}}   </p-header>
+    {{feed.description | stripHtmlTags | slice:0:500 }}...
+    <p-footer>
+    <a href='{{ feed.link }}'>Leer Mas...</a>
+    </p-footer>
+</p-panel>
